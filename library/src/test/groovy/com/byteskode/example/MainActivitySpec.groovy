@@ -97,5 +97,4 @@ class MainActivitySpec extends Specification {
         1 * activity.labelTv.setText("Bundle with 2 elements")
     }
 
-
 }
