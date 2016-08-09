@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'groovyx.grooid.groovy-android'
 
 group = 'com.github.byteskode'
 
@@ -17,7 +18,8 @@ android {
 }
 
 dependencies {
-    // add dependencies here
+    testCompile "org.robolectric:robolectric:3.1.2"
+    testCompile 'org.robospock:robospock:1.0.0'
 }
 
 // build a jar with source files
