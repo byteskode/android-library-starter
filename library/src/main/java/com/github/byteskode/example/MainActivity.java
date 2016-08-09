@@ -1,4 +1,4 @@
-package com.byteskode.example;
+package com.github.byteskode.example;
 
 import android.app.Activity;
 import android.content.Intent;
