@@ -15,7 +15,7 @@ and:
 
 ```gradle
 dependencies {
-    compile 'com.github.jitpack:android-library-starter:{latest version}'
+    compile 'com.github.byteskode:android-library-starter:{latest version}'
 }
 ```
 
