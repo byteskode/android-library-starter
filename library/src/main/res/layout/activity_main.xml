@@ -12,15 +12,13 @@
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world"
-        android:visibility="gone" />
+        android:text="@string/hello_world"/>
 
     <TextView
         android:id="@+id/label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Another label"
-        android:visibility="gone" />
+        android:text="Another label"/>
 
     <ImageView
         android:layout_width="wrap_content"

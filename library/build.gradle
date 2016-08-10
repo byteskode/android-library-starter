@@ -1,31 +1,51 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
-apply plugin: 'groovyx.grooid.groovy-android'
 
 group = 'com.github.byteskode'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.2"
+    compileSdkVersion 21
+    buildToolsVersion "22.0.1"
 
     defaultConfig {
-        minSdkVersion 21
-        targetSdkVersion 23
+        minSdkVersion 14
+        targetSdkVersion 21
         versionCode 1
         versionName "1.0"
         consumerProguardFiles 'proguard-rules.pro'
     }
+
+//    testOptions {
+//        unitTests.returnDefaultValues = true
+//    }
+
+    testOptions
+            {
+                unitTests {
+                    all {
+                        testLogging {
+                            events "passed", "skipped", "failed"
+                            //, "standardOut", "standardError"
+
+                            lifecycle {
+                                exceptionFormat "full"
+                            }
+                        }
+                    }
+                }
+            }
 }
+
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:23.1.0'
-    testCompile 'cglib:cglib-nodep:3.1'
+//    compile 'com.android.support:appcompat-v7:22.2.1'
+    compile 'com.android.support:appcompat-v7:22.1.1'
 
-    // use for mocking classes
-    testCompile 'org.objenesis:objenesis:2.2'
+    //test dependencies
+    testCompile 'junit:junit:4.12'
+    testCompile "org.mockito:mockito-core:1.9.5"
     testCompile "org.robolectric:robolectric:3.1.2"
-    testCompile 'org.robospock:robospock:1.0.0'
 }
 
 // build a jar with source files
@@ -35,7 +55,7 @@ task sourcesJar(type: Jar) {
 }
 
 task javadoc(type: Javadoc) {
-    failOnError  false
+    failOnError false
     source = android.sourceSets.main.java.sourceFiles
     classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
     classpath += configurations.compile
