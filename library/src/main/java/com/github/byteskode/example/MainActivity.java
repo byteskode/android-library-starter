@@ -21,24 +21,4 @@ public class MainActivity extends Activity {
 
         startingIntent = getIntent();
     }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        if (conditionValue > 3) {
-            titleTv.setText("High Number");
-        } else {
-            titleTv.setText("Low Number");
-        }
-    }
-
-    void processExtras() {
-        Bundle bundle = startingIntent.getExtras();
-        if (bundle == null) {
-            labelTv.setText("Null Bundle");
-        } else {
-            labelTv.setText("Bundle with " + bundle.size() + " elements");
-        }
-
-    }
 }
